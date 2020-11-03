@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init:  abtnode init -f --mode debug && cd demo && mix deps.get &&  mix deps.compile && cd assets && npm install && cd ../..
+    command: abtnode start && BLOCKLET_START_TIMEOUT=3600 abtnode dev
+ports:
+  - port: 8080
+    onOpen: ignore
+  - port: 4430
+    onOpen: ignore
+  - port: 8089
+    onOpen: ignore
+  - port: 8090
+    onOpen: ignore
